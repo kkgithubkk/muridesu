@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: muridesu
+  datasource:
+    url: jdbc:mysql://localhost:3306/muridesu
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    database: mysql
+    open-in-view: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+        show_sql: false
+        hbm2ddl.auto: update
+        enable_lazy_load_no_trans: true
+
+management:
+   endpoints:
+     web:
+       exposure:
+         include: env
+
+server:
+  servlet:
+    context-path: /v0
+  http2:
+    enabled: true
